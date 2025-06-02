@@ -71,6 +71,9 @@ sap.ui.define(
           var oContext = oListBinding.create(oBook);
           this.getView().setBindingContext(oContext);
           sap.m.MessageToast.show("Book created successfully");
+          var oTable = this.byId("appTable");
+          var oBinding = oTable.getBinding("items");
+          oBinding.refresh();
           this.byId("createDialog").close();
         } catch (error) {
           console.error("Error", error);
