@@ -1,0 +1,9 @@
+<mvc:View controllerName="ui5.odata.test.controller.ItemList" displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Panel id="itemPanel">
+        <content>
+            <Button id="buttonItem" text="This is a Button!"></Button>
+        </content>
+    </Panel>
+</mvc:View>

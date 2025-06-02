@@ -1,0 +1,48 @@
+<mvc:View xmlns:table="sap.ui.table" controllerName="ui5.odata.test.controller.App" displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <App id="app">
+        <pages>
+            <Page title="Bookshop Catalogue">
+                <content>
+                    <Table id="appTable" class="sapUiResponsiveMargin" width="auto" items="{ path:'/Books' }">
+                        <headerToolbar>
+                            <OverflowToolbar>
+                                <Title text="Book List"/>
+                                <ToolbarSpacer/>
+                                <Button tooltip="Create" icon="sap-icon://add" text="Create" press=".onCreatePress"/>
+                                <Button tooltip="Sort" icon="sap-icon://sort" press=".onSortPress"/>
+                                <SearchField width="35%" search=".onFilterItems"/>
+                            </OverflowToolbar>
+                        </headerToolbar>
+                        <columns>
+                            <Column headerMenu="columnHeaderMenu">
+                                <Text text="Title"/>
+                            </Column>
+                            <Column>
+                                <Text text="Description"/>
+                            </Column>
+                            <Column>
+                                <Text text="Stock"/>
+                            </Column>
+                            <Column>
+                                <Text text="Price"/>
+                            </Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="{title}"/>
+                                    <Text text="{descr}"/>
+                                    <Text text="{stock}"/>
+                                    <Text text="{price}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

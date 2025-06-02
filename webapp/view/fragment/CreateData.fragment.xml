@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:u="sap.ui.unified">
+    <Dialog id="createDialog" title="Create a New Book" draggable="true" stretch="true">
+        <VBox class="sapUiSmallMargin">
+            <items>
+                <Label text="Title:" class="sapUiTinyMarginBottom" required="true"/>
+                <Input id="inputTitle" type="Text" placeholder="Enter book title" width="70%" class="sapUiMediumMarginBottom"></Input>
+                <Label text="ISBN:" class="sapUiTinyMarginBottom" required="true"/>
+                <Input id="inputIsbn" type="Text" placeholder="Enter book title" width="70%" class="sapUiMediumMarginBottom"></Input>
+                <Label text="Description:" class="sapUiTinyMarginBottom"/>
+                <Input id="inputDesc" type="Text" placeholder="Enter description" width="70%" class="sapUiMediumMarginBottom"></Input>
+                <Label text="Stock:" class="sapUiTinyMarginBottom" required="true"/>
+                <Input id="inputStock" type="Number" placeholder="Enter stock" width="70%" class="sapUiMediumMarginBottom"></Input>
+                <Label text="Price:" class="sapUiTinyMarginBottom"/>
+                <Input id="inputPrice" type="Number" placeholder="Enter price" width="70%" class="sapUiMediumMarginBottom"></Input>
+            </items>
+        </VBox>
+        <footer>
+            <Toolbar id="createToolbar">
+                <content>
+                    <Button id="createConfirmButton" text="Confirm" type="Emphasized" press="onCreateConfirmPress" icon="sap-icon://upload-to-cloud" />
+                    <Button id="createCancelButton" text="Cancel" press="onCreateCancelPress" icon="sap-icon://cancel" />
+                </content>
+            </Toolbar>
+        </footer>
+    </Dialog>
+</core:FragmentDefinition>
