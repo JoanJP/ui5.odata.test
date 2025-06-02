@@ -21,6 +21,9 @@
                                 <Text text="Title"/>
                             </Column>
                             <Column>
+                                <Text text="ISBN"/>
+                            </Column>
+                            <Column>
                                 <Text text="Description"/>
                             </Column>
                             <Column>
@@ -38,6 +41,7 @@
                                         <Text text="{title}"/>
                                         <!-- <Input value="{title}" visible="{isEditable}"/> -->
                                     </VBox>
+                                    <Text text="{isbn}"/>
                                     <Text text="{descr}"/>
                                     <Text text="{stock}"/>
                                     <Text text="{price}"/>
