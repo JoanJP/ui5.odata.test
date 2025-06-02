@@ -6,8 +6,17 @@ sap.ui.define(
     "sap/ui/model/FilterOperator",
     "sap/ui/core/Fragment",
     "sap/ui/Device",
+    "sap/m/ColumnListItem",
   ],
-  (BaseController, Filter, Sorter, FilterOperator, Fragment, Device) => {
+  (
+    BaseController,
+    Filter,
+    Sorter,
+    FilterOperator,
+    Fragment,
+    Device,
+    ColumnListItem
+  ) => {
     "use strict";
 
     return BaseController.extend("ui5.odata.test.controller.App", {
@@ -27,22 +36,7 @@ sap.ui.define(
         });
       },
 
-      onSortChange(oEvent) {
-        const oTable = this.byId("appTable");
-        const oBinding = oTable.getBinding("items");
-        const oQuickSortItem = oEvent.getParameter("item");
-        if (oQuickSortItem.getSortOrder() === "None") {
-          oBinding.sort();
-        } else {
-          oBinding.sort([
-            new Sorter(
-              oQuickSortItem.getKey(),
-              oQuickSortItem.getSortOrder() === "Descending"
-            ),
-          ]);
-        }
-      },
-
+      //! Create
       async onCreatePress(oEvent) {
         // create dialog lazily
         this.oDialog ??= await this.loadFragment({
@@ -51,7 +45,6 @@ sap.ui.define(
 
         this.oDialog.open();
       },
-
       async onCreateConfirmPress(oEvent) {
         var oTitle = this.byId("inputTitle").getValue();
         var oIsbn = this.byId("inputIsbn").getValue();
@@ -79,11 +72,14 @@ sap.ui.define(
           console.error("Error", error);
         }
       },
-
       onCreateCancelPress: async function () {
         this.byId("createDialog").close();
       },
 
+      //! Edit
+      onEditPress() {},
+
+      //! Filter
       onFilterItems(oEvent) {
         // build filter array
         const aFilter = [];
@@ -91,13 +87,13 @@ sap.ui.define(
         if (sQuery) {
           aFilter.push(new Filter("title", FilterOperator.Contains, sQuery));
         }
-
         // filter binding
         const oList = this.byId("appTable");
         const oBinding = oList.getBinding("items");
         oBinding.filter(aFilter);
       },
 
+      //! Sort
       async onSortPress() {
         this.getViewSettingsDialog(
           "ui5.odata.test.view.fragment.SortDialog"
@@ -112,11 +108,9 @@ sap.ui.define(
           sPath,
           bDescending,
           aSorters = [];
-
         sPath = mParams.sortItem.getKey();
         bDescending = mParams.sortDescending;
         aSorters.push(new Sorter(sPath, bDescending));
-
         // apply the selected sort and group settings
         oBinding.sort(aSorters);
       },
@@ -136,6 +130,23 @@ sap.ui.define(
           this._mViewSettingsDialogs[sDialogFragmentName] = pDialog;
         }
         return pDialog;
+      },
+
+      //! Sort in Column
+      onSortChange(oEvent) {
+        const oTable = this.byId("appTable");
+        const oBinding = oTable.getBinding("items");
+        const oQuickSortItem = oEvent.getParameter("item");
+        if (oQuickSortItem.getSortOrder() === "None") {
+          oBinding.sort();
+        } else {
+          oBinding.sort([
+            new Sorter(
+              oQuickSortItem.getKey(),
+              oQuickSortItem.getSortOrder() === "Descending"
+            ),
+          ]);
+        }
       },
     });
   }

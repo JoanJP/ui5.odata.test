@@ -5,11 +5,12 @@
         <pages>
             <Page title="Bookshop Catalogue">
                 <content>
-                    <Table id="appTable" class="sapUiResponsiveMargin" width="auto" items="{ path:'/Books' }">
+                    <Table id="appTable" class="sapUiResponsiveMargin" width="auto" items="{ path:'/Books' }" mode="MultiSelect" inset="false">
                         <headerToolbar>
                             <OverflowToolbar>
                                 <Title text="Book List"/>
                                 <ToolbarSpacer/>
+                                <Button tooltip="Edit" icon="sap-icon://edit" text="Edit" press=".onEditPress" type="Emphasized"/>
                                 <Button tooltip="Create" icon="sap-icon://add" text="Create" press=".onCreatePress"/>
                                 <Button tooltip="Sort" icon="sap-icon://sort" press=".onSortPress"/>
                                 <SearchField width="35%" search=".onFilterItems"/>
@@ -33,7 +34,10 @@
                         <items>
                             <ColumnListItem>
                                 <cells>
-                                    <Text text="{title}"/>
+                                    <VBox >
+                                        <Text text="{title}"/>
+                                        <!-- <Input value="{title}" visible="{isEditable}"/> -->
+                                    </VBox>
                                     <Text text="{descr}"/>
                                     <Text text="{stock}"/>
                                     <Text text="{price}"/>
