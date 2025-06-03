@@ -3,19 +3,19 @@
     xmlns:f="sap.ui.layout.form"
     xmlns:l="sap.ui.layout"
     xmlns:u="sap.ui.unified">
-    <Dialog id="createDialog" title="Create a New Book" draggable="true" stretch="true">
+    <Dialog id="createDialog" title="Create a New Book" draggable="true" resizable="true">
         <VBox class="sapUiSmallMargin">
             <items>
-                <Label text="Title:" class="sapUiTinyMarginBottom" required="true"/>
-                <Input id="inputTitle" type="Text" placeholder="Enter book title" width="70%" class="sapUiMediumMarginBottom"></Input>
-                <Label text="ISBN:" class="sapUiTinyMarginBottom" required="true"/>
+                <Label text="Title:" class="sapUiTinyMarginTop" required="true"/>
+                <Input id="inputTitle" type="Text" placeholder="Enter book title" width="70%" class="sapUiMediumMarginBottom" required="true"></Input>
+                <Label text="ISBN:" class="sapUiTinyMarginTop" required="true"/>
                 <Input id="inputIsbn" type="Text" placeholder="Enter book title" width="70%" class="sapUiMediumMarginBottom"></Input>
-                <Label text="Description:" class="sapUiTinyMarginBottom"/>
+                <Label text="Description:" class="sapUiTinyMarginTop"/>
                 <Input id="inputDesc" type="Text" placeholder="Enter description" width="70%" class="sapUiMediumMarginBottom"></Input>
-                <Label text="Stock:" class="sapUiTinyMarginBottom" required="true"/>
-                <Input id="inputStock" type="Number" placeholder="Enter stock" width="70%" class="sapUiMediumMarginBottom"></Input>
-                <Label text="Price:" class="sapUiTinyMarginBottom"/>
-                <Input id="inputPrice" type="Number" placeholder="Enter price" width="70%" class="sapUiMediumMarginBottom"></Input>
+                <Label text="Stock:" class="sapUiTinyMarginTop" required="true"/>
+                <Input id="inputStock" type="Number" placeholder="Enter stock" width="70%" class="sapUiMediumMarginBottom" required="true"></Input>
+                <Label text="Price:" class="sapUiTinyMarginTop" required="true"/>
+                <Input id="inputPrice" type="Number" placeholder="Enter price" width="70%" class="sapUiMediumMarginBottom" required="true"></Input>
             </items>
         </VBox>
         <footer>
