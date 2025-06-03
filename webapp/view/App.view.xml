@@ -6,7 +6,7 @@
             <Page title="Bookshop Catalogue">
                 <content>
                     <Table id="appTable" class="sapUiResponsiveMargin" width="auto" items="{ path:'/Books', parameters: {
-                    $filter : 'isDeleted eq false'} }" mode="MultiSelect" inset="false">
+                    $filter : 'isDeleted eq false'}, sorter:{path : 'title', descending : false} }" mode="MultiSelect" inset="false">
                         <headerToolbar>
                             <OverflowToolbar>
                                 <Title text="Book List"/>
@@ -41,7 +41,7 @@
                                 <cells>
                                     <Text text="{title}"/>
                                     <Text text="{isbn}"/>
-                                    <Text text="{descr}"/>
+                                    <Text text="{descr}" wrapping="true" tooltip="{descr}" maxLines="3"/>
                                     <Text text="{stock}"/>
                                     <Text text="{price}"/>
                                 </cells>

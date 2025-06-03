@@ -92,11 +92,13 @@ sap.ui.define(
         oDialog.open();
       },
       async onCreateConfirmPress(oEvent) {
-        var oTitle = this.byId("inputTitle").getValue();
-        var oIsbn = this.byId("inputIsbn").getValue();
-        var oDesc = this.byId("inputDesc").getValue();
-        var oStock = parseInt(this.byId("inputStock").getValue());
-        var oPrice = this.byId("inputPrice").getValue();
+        // Get input values (trim whitespace)
+        var oTitle = this.byId("inputTitle").getValue().trim();
+        var oIsbn = this.byId("inputIsbn").getValue().trim();
+        var oDesc = this.byId("inputDesc").getValue().trim();
+        // Set default to 0 if empty/NaN for stock and price
+        var oStock = parseInt(this.byId("inputStock").getValue()) || 0;
+        var oPrice = this.byId("inputPrice").getValue() || "0";
         var oBook = {
           title: oTitle,
           isbn: oIsbn,

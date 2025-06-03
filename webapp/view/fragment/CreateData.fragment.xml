@@ -13,9 +13,9 @@
                 <Label text="Description:" class="sapUiTinyMarginTop"/>
                 <Input id="inputDesc" type="Text" placeholder="Enter description" width="70%" class="sapUiMediumMarginBottom"></Input>
                 <Label text="Stock:" class="sapUiTinyMarginTop" required="true"/>
-                <Input id="inputStock" type="Number" placeholder="Enter stock" width="70%" class="sapUiMediumMarginBottom" required="true"></Input>
+                <Input id="inputStock" type="Number" placeholder="Enter stock" width="70%" class="sapUiMediumMarginBottom"></Input>
                 <Label text="Price:" class="sapUiTinyMarginTop" required="true"/>
-                <Input id="inputPrice" type="Number" placeholder="Enter price" width="70%" class="sapUiMediumMarginBottom" required="true"></Input>
+                <Input id="inputPrice" type="Number" placeholder="Enter price" width="70%" class="sapUiMediumMarginBottom"></Input>
             </items>
         </VBox>
         <footer>
