@@ -7,7 +7,8 @@
             <Label text="ISBN" labelFor="editInputIsbn" class="sapUiTinyMarginTop"/>
             <Input id="editInputIsbn"/>
             <Label text="Description" labelFor="editInputDesc" class="sapUiTinyMarginTop"/>
-            <Input id="editInputDesc"/>
+            <!-- <Input id="editInputDesc"/> -->
+            <TextArea id="editInputDesc" rows="3" cols="50"/>
             <Label text="Stock" labelFor="editInputStock"/>
             <Input id="editInputStock" type="Number" class="sapUiTinyMarginTop"/>
             <Label text="Price" labelFor="editInputPrice"/>

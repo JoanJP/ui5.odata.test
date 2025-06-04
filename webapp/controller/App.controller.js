@@ -5,9 +5,9 @@ sap.ui.define(
     "sap/ui/model/Sorter",
     "sap/ui/model/FilterOperator",
     "sap/ui/core/Fragment",
-    "sap/ui/Device",
+    "sap/m/MessageBox",
   ],
-  (BaseController, Filter, Sorter, FilterOperator, Fragment, Device) => {
+  (BaseController, Filter, Sorter, FilterOperator, Fragment, MessageBox) => {
     "use strict";
 
     return BaseController.extend("ui5.odata.test.controller.App", {
@@ -15,6 +15,19 @@ sap.ui.define(
         //* Dialog object
         this._mDialogs = {};
       },
+
+      //! Navigation Function
+      onPressRow(oEvent) {
+        const oItem = oEvent.getSource();
+        const oRouter = this.getOwnerComponent().getRouter();
+
+        oRouter.navTo("review", {
+          bookId: window.encodeURIComponent(
+            oItem.getBindingContext().getPath().substring(1)
+          ),
+        });
+      },
+
       //! Dialog Function
       async _getDialog(sFragmentName, sDialogId) {
         if (!this._mDialogs[sFragmentName]) {
@@ -64,12 +77,7 @@ sap.ui.define(
       },
 
       //! Delete (Soft Delete)
-      async onDeletePress() {
-        const oData = await this._getSelectedRows({ returnObject: false });
-        if (!oData) {
-          // Check if no row is selected
-          return; // Exit early
-        }
+      async _onDeleteConfirm(oData) {
         try {
           oData.forEach(function (oData) {
             oData.setProperty("isDeleted", true);
@@ -81,6 +89,24 @@ sap.ui.define(
         } catch (error) {
           console.error("Error while Deleting", error);
         }
+      },
+      async onDeletePress() {
+        const oData = await this._getSelectedRows({ returnObject: false });
+        if (!oData) {
+          return;
+        }
+        MessageBox.confirm("Are you sure want to delete the row(s)?", {
+          actions: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
+          emphasizedAction: MessageBox.Action.OK,
+          onClose: function (sAction) {
+            if (sAction == "OK") {
+              this._onDeleteConfirm(oData);
+            } else {
+              return;
+            }
+          }.bind(this),
+          dependentOn: this.getView(),
+        });
       },
 
       //! Create

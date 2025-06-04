@@ -5,13 +5,13 @@
         <pages>
             <Page title="Bookshop Catalogue">
                 <content>
-                    <Table id="appTable" class="sapUiResponsiveMargin" width="auto" items="{ path:'/Books', parameters: {
-                    $filter : 'isDeleted eq false'}, sorter:{path : 'title', descending : false} }" mode="MultiSelect" inset="false">
+                    <Table id="appTable" itemPress=".onBookSelect" selectionChange=".onBookSelect" class="sapUiResponsiveMargin" width="auto" items="{ path:'/Books', parameters: {
+                    $filter : 'isDeleted eq false'}, sorter:{path : 'title', descending : false} }" mode="MultiSelect" inset="false" growing="true" growingThreshold="10" growingScrollToLoad="false">
                         <headerToolbar>
                             <OverflowToolbar>
                                 <Title text="Book List"/>
                                 <ToolbarSpacer/>
-                                <Button tooltip="Edit" icon="sap-icon://edit" text="Edit" press=".onEditPress" type="Emphasized"/>
+                                <Button tooltip="Edit" icon="sap-icon://edit" text="Edit" press=".onEditPress" type="Emphasized" />
                                 <Button tooltip="Create" icon="sap-icon://add" text="Create" press=".onCreatePress"/>
                                 <Button tooltip="Delete" icon="sap-icon://delete" text="Delete" press=".onDeletePress" type="Negative"/>
                                 <Button tooltip="Sort" icon="sap-icon://sort" press=".onSortPress"/>
@@ -22,10 +22,10 @@
                             <Column>
                                 <Text text="Title"/>
                             </Column>
-                            <Column>
+                            <Column demandPopin="true" minScreenWidth="Small">
                                 <Text text="ISBN"/>
                             </Column>
-                            <Column>
+                            <Column demandPopin="false" minScreenWidth="Tablet">
                                 <Text text="Description"/>
                             </Column>
                             <Column>
@@ -37,10 +37,10 @@
                         </columns>
 
                         <items>
-                            <ColumnListItem>
+                            <ColumnListItem type="Navigation" press=".onPressRow">
                                 <cells>
                                     <Text text="{title}"/>
-                                    <Text text="{isbn}"/>
+                                    <Text text="{isbn}" textAlign="Begin"/>
                                     <Text text="{descr}" wrapping="true" tooltip="{descr}" maxLines="3"/>
                                     <Text text="{stock}"/>
                                     <Text text="{price}"/>

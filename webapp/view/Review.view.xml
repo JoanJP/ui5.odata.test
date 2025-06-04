@@ -1,0 +1,21 @@
+<mvc:View xmlns:table="sap.ui.table" controllerName="ui5.odata.test.controller.Review"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Page title="Book Review">
+        <ObjectHeader title="{bookItems>title}"/>
+        <content>
+            <List id="reviewList" items="{/Reviews}" noDataText="No reviews yet">
+                <CustomListItem>
+                    <VBox class="sapUiMediumMargin">
+                        <HBox alignItems="Center">
+                            <Avatar displayShape="Circle" src="https://ui-avatars.com/api/?name={createdBy}" />
+                            <Link text="{createdBy}" wrapping="true" href="mailto:{createdBy}" class="sapUiSmallMarginBegin" />
+                        </HBox>
+                        <Text text="{title}" wrapping="true" class="sapUiSmallMarginTop"/>
+                        <Text text="{descr}" wrapping="true" class="sapUiSmallMarginTop"/>
+                    </VBox>
+                </CustomListItem>
+            </List>
+        </content>
+    </Page>
+</mvc:View>

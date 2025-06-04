@@ -106,12 +106,30 @@
           "name": "RouteOverview",
           "pattern": ":?query:",
           "target": ["TargetOverview"]
+        },
+        {
+          "name": "home",
+          "target": "home",
+          "pattern": ""
+        },
+        {
+          "name": "review",
+          "target": "review",
+          "pattern": "review/{bookId}"
         }
       ],
       "targets": {
         "TargetOverview": {
           "id": "Overview",
           "name": "Overview"
+        },
+        "review": {
+          "id": "review",
+          "name": "Review"
+        },
+        "home": {
+          "id": "home",
+          "name": "Home"
         }
       }
     },

@@ -1,1 +1,18 @@
 /* Enter your custom styles here */
+/* Show both icon and text on larger screens */
+.responsive-button .sapMBtnContent {
+  display: flex;
+  align-items: center;
+}
+
+/* Hide button text on phone screens */
+@media (max-width: 599px) {
+  .responsive-button .sapMBtnText {
+    display: none;
+  }
+
+  .responsive-button {
+    min-width: 2.5rem;
+    padding: 0.5rem;
+  }
+}

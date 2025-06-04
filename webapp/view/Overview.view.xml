@@ -1,5 +1,14 @@
 <mvc:View controllerName="ui5.odata.test.controller.Overview"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
-    <mvc:XMLView id="appOverview" viewName="ui5.odata.test.view.App"/>
+    <SplitApp >
+        <masterPages>
+
+        </masterPages>
+        <detailPages>
+            <mvc:XMLView id="appOverview" viewName="ui5.odata.test.view.App"/>
+        </detailPages>
+    </SplitApp>
+
+
 </mvc:View>
