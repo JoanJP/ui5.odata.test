@@ -3,7 +3,7 @@
     xmlns="sap.m">
     <SplitApp >
         <masterPages>
-
+            <mvc:XMLView id="authorOverview" viewName="ui5.odata.test.view.Author"/>
         </masterPages>
         <detailPages>
             <mvc:XMLView id="appOverview" viewName="ui5.odata.test.view.App"/>

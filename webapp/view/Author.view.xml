@@ -1,0 +1,18 @@
+<mvc:View controllerName="ui5.odata.test.controller.Overview"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Dashboard">
+        <subHeader>
+            <Toolbar>
+                <Title text="Authors" />
+                <ToolbarSpacer />
+
+                <Button icon="sap-icon://add" tooltip="Add Author" press=".onAddAuthor" />
+            </Toolbar>
+        </subHeader>
+        <List id="authorList" mode="SingleSelectMaster" items="{ path: '/Authors'}">
+            <!-- Template for each author -->
+            <StandardListItem title="{name}" type="Active" />
+        </List>
+    </Page>
+</mvc:View>
